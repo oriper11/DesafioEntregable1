@@ -1,30 +1,46 @@
-let nombre = prompt ("Ingrese su nombre").toLocaleLowerCase()
-console.log(nombre)
-let edadUsuario = parseInt(prompt ("Ingrese su edad"))
+console.log('Este programa verifica las notas del colegio:')
 
-if ( edadUsuario <= 17) {
-        alert ("Eres menor de edad")
+let usuarioValidado = false
+let nombre, edad,dni,asignatura
+function CalcNac (edad) {
+  const fechaActual = 2022
+  return (fechaActual - edad)
 }
+function esValorValido (valor,numero) {
+  if (numero){
+    return(!isNaN(valor))
+  }
+  if (!valor){
+    return false
+  } else {
+    return true
+  }
+}do{
+  nombre = prompt ('Ingrese nombre completo del alumno/a')
+  dni = parseFloat(prompt('Ingrese número de DNI'))
+  asignatura = prompt('Ingrese asignatura corrrespondiente')
+  edad = parseFloat(prompt('Ingrese edad del alumno'))
 
-else if (edadUsuario >= 18) { 
-    console.log("Eres mayor de edad")
-    let drink = prompt("Ingrese su trago favorito")
-    if (drink == "fernet"){
-    console.log ("Prefiero fernet con coca cola")
-    } else if (drink == "vodka") {
-    console.log ("Prefiero bebidas blancas, como vodka, ron") 
-    } else if (drink == "tragos") {
-    console.log ("Prefiero tragos frutales y/o dulces, como una caipiriña")
-    } else if (drink == "vino") {
-    console.log ("Prefiero tomar vino, válido para tinto/blanco/rosado")
-    } else if (drink == "gaseosa") {
-    console.log ("Prefiero gaseosa/agua/jugo")
-    }else if (drink == "gin") {
-    console.log ("Prefiero gin")
-    }else if (drink == "whisky") {
-    console.log ("Prefiero whisky")
-    }do{
-    drink = prompt ("¿Desea elegir un trago más?").toLowerCase()
-    }while (drink !="si" && drink != "no"){
-    }while (drink != "no"){}
-}
+  if (esValorValido (nombre,false) && esValorValido (dni,true) && esValorValido(asignatura,false)){
+    alert ('El alumno se registró correctamente')
+    usuarioValidado = true
+  } else {
+    alert ('Datos incorrectos')
+    usuarioValidado = false
+  }
+
+}while (!usuarioValidado == true) {
+  let nota1 = parseInt(prompt ("Ingrese nota de evaluación (1 al 10)"))
+  let nota2 = parseInt (prompt ("Ingrese nota de trabajos prácticos (1 al 10)"))  
+  let nota3 = parseInt (prompt("Ingrese nota de trabajo en clase (1 al 10)"))
+  let nota4 = parseInt (prompt("Ingrese nota aptitudinal (1 al 10)"))
+  let promedio = (nota1 + nota2 + nota3 + nota4)/4
+
+    function operacion (nota1, nota2, nota3, nota4) {
+      promedio = (nota1 + nota2 + nota3 + nota4)/4
+    } if (!promedio < 6) {
+            alert ("El alumno se encuentra desaprobado/a")
+        } else if (!promedio > 7) {
+            alert ("El alumno se encuentra aprobado/a")
+        }
+  }
